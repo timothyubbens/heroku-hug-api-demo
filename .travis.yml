@@ -4,8 +4,13 @@ language:
 python:
   - '3.6'
 
+before_install:
+  - nvm install stable
+  - npm update -g npm
+
 install:
   - pip install -r requirements.txt
+  - npm install -g newman
 
 before_script:
   - pip install coverage
@@ -28,3 +33,7 @@ deploy:
   app: fierce-reaches-65948
   on:
     repo: timothyubbens/heroku-hug-api-demo
+
+after_deploy:
+  - curl https://fierce-reaches-65948.herokuapp.com/ # spin up the heroku app
+  - newman run tests/heroku-hug.postman_collection.json
