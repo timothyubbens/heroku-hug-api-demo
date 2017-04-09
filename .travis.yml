@@ -1,7 +1,8 @@
 language:
   - python
+
 python:
-  - "3.6"
+  - '3.6'
 
 install:
   - pip install -r requirements.txt
@@ -19,3 +20,11 @@ after_success:
 
 notifications:
   email: false
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: J78kMdJzOQB8knsnFsMnKo4ZC/6lRKA0mkBzjm79Bp8PVGIdGypcCKc7TLgNgbC1Ito5RU9B/fBdX7kPHes+1CVN0kgy6aOWY9Sl7mCdQj26ozxRTBOqOhN48j0f04A6YTU2gClkWMUhF6itVM5WEO9phR51KW/XriZigf61hv59lb0VfT9uG6HOZVDrDVZq02PijsaA77mrDydjrAjltkWiUV8SCpTCm+6Pg7YLMfSFRlJBwCaT2n7Bwld30q03D2AOM6RPJdF8z1CBKeIgY5OdBsBzV2CpbwCNDmSSDk4Ez9EZH4U3VtkFadWlS5izosgo2gE/lSOgDN+Ijq+CO1n6xWyCizOAQacwJO6uTocTBy/mV2pzXALJpxPgcvVa4v0wwJGm+mWSQdK3Eiv5MNrEeA8KKEZb17aFmA5P0mIDjHXR5hHwixElqmr9H+Spd0dUirYsrvmjyek1QTTKBMhOs1qMuge5p+GJLaWtvdqBirzI4HYhDGJPuBbKziRBLrEhJ11dHE2aM6YeC09SCzXsgO7VM3z+Gtslrw8zSZ0YVQtb/Kxu4QUGe+7WevOIFrSLj7297X8Sy8ygA9LUEq63PgHcHThiazKxTUSop+7ZoNDYmsztBIv7fCi88fpLnUEcMmKOJvJDEWXmjI7dVaOh7b9a0+WKTk/4vnAfxHo=
+  app: fierce-reaches-65948
+  on:
+    repo: timothyubbens/heroku-hug-api-demo
