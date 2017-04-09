@@ -1,0 +1,61 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Heroku Hug",
+		"_postman_id": "1768bb39-96db-16f3-79a6-bd30749bf5e8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "v1/users with param",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Response time is less than 500ms\"] = responseTime < 500;",
+							"",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Body matches string\"] = responseBody.has(\"I do nothing useful.\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://floating-brushlands-40869.herokuapp.com/v1/users?user_id=123",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "root url - return api doc",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Response time is less than 500ms\"] = responseTime < 500;",
+							"",
+							"tests[\"Status code is 404\"] = responseCode.code === 404;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://floating-brushlands-40869.herokuapp.com/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
