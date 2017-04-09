@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Heroku Hug",
-		"_postman_id": "1768bb39-96db-16f3-79a6-bd30749bf5e8",
+		"_postman_id": "dd2579b5-9519-c3dc-5e73-7b06d5e5d50f",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -26,6 +26,55 @@
 			],
 			"request": {
 				"url": "https://fierce-reaches-65948.herokuapp.com/v1/users?user_id=123",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "v2/users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Response time is less than 500ms\"] = responseTime < 500;",
+							"",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://fierce-reaches-65948.herokuapp.com/v2/users",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "v1/users error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Response time is less than 500ms\"] = responseTime < 500;",
+							"",
+							"tests[\"Status code is 400\"] = responseCode.code === 400;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://fierce-reaches-65948.herokuapp.com/v1/users",
 				"method": "GET",
 				"header": [],
 				"body": {},
